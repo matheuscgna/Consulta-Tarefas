@@ -1,2 +1,43 @@
-# Consulta-Tarefas
-Atividade Avaliativa proposta pelo Prof. Dr. Wendell Bento Geraldes: O objetivo é criar um sistema protótipo com cadastro e consulta usando PHP e usando o MySQLi, foi criado com auxílio do Gemini
+# 📝 Gerenciador de Tarefas - PHP & MySQLi Seguro
+
+Projeto desenvolvido como protótipo funcional de um sistema web de cadastro e consulta dinâmica de tarefas, utilizando **PHP** orientado a objetos e **MySQLi**. O sistema foi construído focando na implementação de boas práticas de segurança e na **imunidade total contra ataques de SQL Injection**.
+
+---
+
+## 🚀 Funcionalidades
+
+- **Cadastro de Tarefas:** Interface semântica para envio de dados textuais via método `POST`.
+- **Listagem Dinâmica:** Tabela HTML dinamicamente populada com registros persistidos no MySQL.
+- **Filtro de Busca Parcial:** Pesquisa em tempo real por termos parciais utilizando o operador `LIKE`.
+- **Navegação Modular:** Telas separadas para cadastro e consulta de registros.
+
+---
+
+## 🛡️ Camada de Segurança (Blindagem contra SQL Injection)
+
+Para garantir a proteção total do banco de dados contra inserção de comandos maliciosos, o projeto aplica as seguintes rotinas de segurança:
+
+1. **Sanitização de Parâmetros:** Nenhuma variável informada pelo usuário (via `$_POST` ou `$_GET`) é concatenada diretamente nas instruções SQL.
+2. **Higienização Nativa com MySQLi:** Utilização do método `$mysqli->real_escape_string()` em todos os parâmetros recebidos para escapar e neutralizar caracteres especiais de controle de string (aspas simples `'`, aspas duplas `"`, apóstrofos, etc.).
+3. **Escapamento na Exibição:** Uso de `htmlspecialchars()` na renderização do HTML para mitigar vulnerabilidades de Cross-Site Scripting (XSS).
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Front-end:** HTML5 semântico e CSS3 puro.
+- **Back-end:** PHP 8.x (Orientado a Objetos com a biblioteca nativa `mysqli`).
+- **Banco de Dados:** MySQL / PostgreSQL
+
+---
+
+## 📂 Estrutura do Projeto
+
+```text
+Consulta-Tarefas/
+├── index.php          # Tela 1: Form de Cadastro de Tarefas (POST)
+├── consulta.php       # Tela 2: Form de Pesquisa (GET) e Tabela Dinâmica
+├── cadastrar.php      # Script de processamento e sanitização do INSERT
+├── conexao.php        # Conexão segura e tratamento de erros ($mysqli->connect_errno)
+├── style.css          # Estilização centralizada da aplicação
+└── banco.sql          # Script DDL para criação da base de dados e tabela
