@@ -34,10 +34,7 @@ Para garantir a proteção total do banco de dados contra inserção de comandos
 ## 📂 Estrutura do Projeto
 
 ```text
-Consulta-Tarefas/
-├── index.php          # Tela 1: Form de Cadastro de Tarefas (POST)
-├── consulta.php       # Tela 2: Form de Pesquisa (GET) e Tabela Dinâmica
-├── cadastrar.php      # Script de processamento e sanitização do INSERT
-├── conexao.php        # Conexão segura e tratamento de erros ($mysqli->connect_errno)
-├── style.css          # Estilização centralizada da aplicação
-└── banco.sql          # Script DDL para criação da base de dados e tabela
+├── banco.sql        (Criação da base de dados)
+├── conexao.php      (Conexão mysqli POO)
+├── index.php        (Tudo-em-um: Formulário, Filtro, Sanitização e Tabela)
+└── style.css        (Estilização)
