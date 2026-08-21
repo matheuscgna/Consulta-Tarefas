@@ -1,9 +1,18 @@
 <?php
-// Conexão orientada a objetos usando a classe nativa mysqli
-$mysqli = new mysqli("localhost", "root", "", "todo_db");
+// Configurações do Banco de Dados
+$host    = 'localhost';
+$usuario = 'root';
+$senha   = '';
+$banco   = 'gerenciador_tarefas';
 
-// Verificação obrigatória de erro na conexão
+// Conexão Orientada a Objetos (POO) usando mysqli
+$mysqli = new mysqli($host, $usuario, $senha, $banco);
+
+// Requisito 1: Tratamento obrigatório de falha de conexão via $mysqli->connect_errno
 if ($mysqli->connect_errno) {
-    die("Falha na conexão com o banco de dados: " . $mysqli->connect_error);
+    die("Falha ao conectar ao MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error);
 }
+
+// Configura o charset para evitar problemas com acentuação
+$mysqli->set_charset("utf8mb4");
 ?>

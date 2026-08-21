@@ -1,11 +1,8 @@
-CREATE DATABASE IF NOT EXISTS todo_db
-CHARACTER SET utf8mb4 
-COLLATE utf8mb4_unicode_ci;
-
-USE todo_db;
+CREATE DATABASE IF NOT EXISTS gerenciador_tarefas;
+USE gerenciador_tarefas;
 
 CREATE TABLE IF NOT EXISTS tarefas (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    descricao TEXT NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    nome VARCHAR(255) NOT NULL,
+    descricao TEXT
+);
